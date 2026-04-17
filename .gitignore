@@ -1,0 +1,20 @@
+# DB / 로그 (실행 중 생성되는 파일)
+*.db
+*.log
+
+# Python 캐시
+__pycache__/
+*.pyc
+*.pyo
+
+# 가상환경
+venv/
+.venv/
+env/
+
+# macOS
+.DS_Store
+
+# IDE
+.vscode/
+.idea/

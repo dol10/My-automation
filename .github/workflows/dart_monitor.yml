@@ -1,0 +1,36 @@
+name: DART Monitor
+
+on:
+  schedule:
+    - cron: '0 0 * * *'   # 매일 09:00 KST (= 00:00 UTC, KST = UTC+9)
+  workflow_dispatch:        # GitHub 웹에서 수동 실행 버튼 활성화
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 코드 체크아웃
+        uses: actions/checkout@v4
+
+      - name: Python 설정
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: DB 캐시 복원 (이전 공시 중복 방지)
+        uses: actions/cache@v4
+        with:
+          path: dart_monitor.db
+          key: dart-db-${{ github.run_id }}
+          restore-keys: |
+            dart-db-
+
+      - name: 패키지 설치
+        run: pip install -r requirements.txt
+
+      - name: DART 모니터링 실행
+        env:
+          DART_API_KEY: ${{ secrets.DART_API_KEY }}
+          EMAIL_PASSWORD: ${{ secrets.EMAIL_PASSWORD }}
+        run: python run_once.py
