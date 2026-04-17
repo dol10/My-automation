@@ -12,7 +12,7 @@ CORP_CODE = "00684937"
 CORP_NAME = "지아이이노베이션"
 
 # 공시 수집 기간
-MONTHS_BACK = 3
+MONTHS_BACK = 12
 
 # 결산 연도
 FISCAL_YEAR     = "2024"
