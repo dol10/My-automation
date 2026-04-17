@@ -8,11 +8,11 @@ import os
 DART_API_KEY = os.environ.get("DART_API_KEY", "")
 
 # 지아이이노베이션 고유번호 (변경 불필요)
-CORP_CODE = "00684937"
-CORP_NAME = "지아이이노베이션"
+CORP_CODE = "00126380"
+CORP_NAME = "삼성전자"
 
 # 공시 수집 기간
-MONTHS_BACK = 12
+MONTHS_BACK = 3
 
 # 결산 연도
 FISCAL_YEAR     = "2024"
